@@ -79,7 +79,7 @@ export interface UnitAbility {
 }
 
 export interface Unit extends UnitType {
-visibleuniqId: string;
+  uniqId: string;
   x: number;
   y: number;
   targetX: number | null;
@@ -121,6 +121,7 @@ export interface Defense extends DefenseType {
   currentTarget: string | null;
   lastAttack: number;
   infernoStacks: number;
+  frozen?: boolean;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────────
