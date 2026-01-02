@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   STRATEGIC COMMAND: TOTAL CONTROL - GLOBAL STYLES
+   CR AudioViz AI - Henderson Standard
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    --game-gold: #FCD34D;
+    --game-elixir: #A78BFA;
+    --game-gems: #EC4899;
+    --game-dark: #0F172A;
+    --game-darker: #020617;
+    --brand-primary: #F59E0B;
+    --brand-secondary: #8B5CF6;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: linear-gradient(135deg, #020617 0%, #0F172A 50%, #1E1B4B 100%);
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1E293B;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #64748B;
+  }
+
+  /* Selection color */
+  ::selection {
+    background: rgba(245, 158, 11, 0.3);
+    color: #FCD34D;
+  }
+}
+
+@layer components {
+  /* Game Button Styles */
+  .btn-game {
+    @apply px-6 py-3 font-bold rounded-xl transition-all duration-200 transform;
+    @apply hover:scale-105 active:scale-95;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900;
+  }
+
+  .btn-primary {
+    @apply btn-game bg-gradient-to-r from-amber-500 to-orange-600;
+    @apply hover:from-amber-400 hover:to-orange-500;
+    @apply text-white shadow-lg shadow-amber-500/25;
+    @apply focus:ring-amber-500;
+  }
+
+  .btn-secondary {
+    @apply btn-game bg-gradient-to-r from-purple-500 to-indigo-600;
+    @apply hover:from-purple-400 hover:to-indigo-500;
+    @apply text-white shadow-lg shadow-purple-500/25;
+    @apply focus:ring-purple-500;
+  }
+
+  .btn-danger {
+    @apply btn-game bg-gradient-to-r from-red-500 to-rose-600;
+    @apply hover:from-red-400 hover:to-rose-500;
+    @apply text-white shadow-lg shadow-red-500/25;
+    @apply focus:ring-red-500;
+  }
+
+  .btn-success {
+    @apply btn-game bg-gradient-to-r from-green-500 to-emerald-600;
+    @apply hover:from-green-400 hover:to-emerald-500;
+    @apply text-white shadow-lg shadow-green-500/25;
+    @apply focus:ring-green-500;
+  }
+
+  .btn-ghost {
+    @apply btn-game bg-slate-800/50 border border-slate-700;
+    @apply hover:bg-slate-700/50 hover:border-slate-600;
+    @apply text-slate-200;
+    @apply focus:ring-slate-500;
+  }
+
+  /* Card Styles */
+  .card-game {
+    @apply bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50;
+    @apply shadow-xl transition-all duration-200;
+  }
+
+  .card-game-hover {
+    @apply card-game hover:border-amber-500/50 hover:shadow-amber-500/10;
+    @apply cursor-pointer;
+  }
+
+  /* Resource Display */
+  .resource-gold {
+    @apply text-amber-400 font-bold;
+  }
+
+  .resource-elixir {
+    @apply text-purple-400 font-bold;
+  }
+
+  .resource-gems {
+    @apply text-pink-400 font-bold;
+  }
+
+  /* Unit Tiers */
+  .tier-common {
+    @apply border-slate-500 bg-slate-500/10;
+  }
+
+  .tier-rare {
+    @apply border-blue-500 bg-blue-500/10;
+  }
+
+  .tier-epic {
+    @apply border-purple-500 bg-purple-500/10;
+  }
+
+  .tier-legendary {
+    @apply border-amber-500 bg-amber-500/10;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.2) 100%);
+  }
+
+  /* Star Rating */
+  .star-earned {
+    @apply text-amber-400 drop-shadow-lg;
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.5));
+  }
+
+  .star-empty {
+    @apply text-slate-600;
+  }
+
+  /* Health Bars */
+  .health-bar {
+    @apply h-1 rounded-full bg-slate-700 overflow-hidden;
+  }
+
+  .health-bar-fill {
+    @apply h-full rounded-full transition-all duration-200;
+  }
+
+  .health-high {
+    @apply bg-green-500;
+  }
+
+  .health-medium {
+    @apply bg-amber-500;
+  }
+
+  .health-low {
+    @apply bg-red-500;
+  }
+
+  /* Difficulty Badges */
+  .difficulty-easy {
+    @apply bg-green-500/20 text-green-400 border-green-500/30;
+  }
+
+  .difficulty-medium {
+    @apply bg-yellow-500/20 text-yellow-400 border-yellow-500/30;
+  }
+
+  .difficulty-hard {
+    @apply bg-orange-500/20 text-orange-400 border-orange-500/30;
+  }
+
+  .difficulty-expert {
+    @apply bg-red-500/20 text-red-400 border-red-500/30;
+  }
+
+  .difficulty-legendary {
+    @apply bg-purple-500/20 text-purple-400 border-purple-500/30;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(139, 92, 246, 0.3) 100%);
+  }
+
+  /* Notification Toast */
+  .notification {
+    @apply fixed bottom-4 left-1/2 transform -translate-x-1/2;
+    @apply px-6 py-3 rounded-xl font-bold shadow-2xl;
+    @apply animate-slide-up z-50;
+  }
+
+  .notification-info {
+    @apply bg-blue-500 text-white;
+  }
+
+  .notification-success {
+    @apply bg-green-500 text-white;
+  }
+
+  .notification-error {
+    @apply bg-red-500 text-white;
+  }
+
+  .notification-warning {
+    @apply bg-amber-500 text-black;
+  }
+
+  /* Glow Effects */
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+  }
+
+  /* CR AudioViz AI Branding */
+  .brand-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1;
+    @apply bg-gradient-to-r from-amber-500/20 to-purple-500/20;
+    @apply border border-amber-500/30 rounded-full;
+    @apply text-sm text-amber-300;
+  }
+}
+
+@layer utilities {
+  /* Text Gradients */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+  }
+
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+  }
+
+  .text-gradient-rainbow {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #F59E0B 0%, #EC4899 50%, #8B5CF6 100%);
+  }
+
+  /* Game-specific backgrounds */
+  .bg-game-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+  }
+
+  .bg-deployment-zone {
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(34, 197, 94, 0.05),
+      rgba(34, 197, 94, 0.05) 10px,
+      rgba(34, 197, 94, 0.1) 10px,
+      rgba(34, 197, 94, 0.1) 20px
+    );
+  }
+
+  /* Pulse animation for notifications */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Canvas rendering optimization */
+  .canvas-crisp {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.8);
+  }
+}
+
+@keyframes star-pop {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .btn-game {
+    @apply px-4 py-2 text-sm;
+  }
+}
